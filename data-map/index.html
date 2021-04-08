@@ -12,17 +12,43 @@
   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
    crossorigin=""></script>
+  <script src="js/jquery-3.5.1.min.js"></script>
 </head>
 
 
 <body>
-  <div id="mapid"></div>
-  <script src="js/p5.js"></script>
-  <script src="p5.min.js"></script>
+
+
+  <!-- <div class=intro>
+    <div class="toggle-button">
+        <div class="bar" onclick="togglePopup()"></div>
+    </div>
+    <div class=intro-content>hmmm</div>
+  </div> -->
+
+  <div class="popup center">
+    <div class="title">Introduction</div>
+    <div class="description">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac nisl id justo luctus euismod id vel sem. Duis pellentesque iaculis lectus, sit amet ullamcorper erat rutrum vitae. Nam imperdiet ex quis rutrum egestas. Suspendisse ut leo justo. Phasellus ornare nunc at mauris porta ultricies. Praesent hendrerit lacinia lorem vel suscipit. Aliquam nec nisi nibh. Etiam nisl nunc, convallis eget tortor sit amet, luctus vestibulum nisi. Nam elementum lobortis mattis. Mauris et venenatis dolor. Aenean elementum tempor arcu sit amet ornare.
+    </div>
+    <div class="dismiss-btn">
+      <button id="dismiss-popup-btn">Explore</button>
+    </div>
+  </div>
+
+  <div class="intro-btn">
+    <button id="open-popup-btn">Introduction</button>
+  </div>
+
+  <div id="mapid">
+  </div>
+  <script src="js/toggle-button.js"></script>
+  <script src="js/p5.min.js"></script>
   <script src="js/mappa.js"></script>
   <script src="js/leaflet.curve.js"></script>
   <!-- <script src="js/CSVmap.js"></script> -->
   <script src="js/CSVmap3.js"></script>
+
 </body>
 
 </html>
