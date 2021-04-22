@@ -54,9 +54,9 @@ function loadGraph(){
           }]
       },
       options: {
-          scales: {
-              yAxes: [{
-                  ticks: {
+      scales: {
+      yAxes: [{
+      ticks: {
                       beginAtZero: true
                   }
               }]

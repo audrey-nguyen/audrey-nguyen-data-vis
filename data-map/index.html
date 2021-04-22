@@ -6,12 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Interactive App</title>
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-  integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-  crossorigin=""/>
-  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-   crossorigin=""></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
   <script src="js/jquery-3.5.1.min.js"></script>
 </head>
 
@@ -19,12 +15,6 @@
 <body>
 
 
-  <!-- <div class=intro>
-    <div class="toggle-button">
-        <div class="bar" onclick="togglePopup()"></div>
-    </div>
-    <div class=intro-content>hmmm</div>
-  </div> -->
 
   <div class="popup center">
     <div class="title">Introduction</div>
@@ -40,14 +30,19 @@
     <button id="open-popup-btn">Introduction</button>
   </div>
 
-  <div id="mapid">
-  </div>
+  <div id="coEmmisson" class="orange show"></div>
+     <p class="hint"><!-- Hint text will be displayed here --></p>
+
+  <div class='custom-popup' id="map"></div>
+
   <script src="js/toggle-button.js"></script>
+  <script src="js/script.js"></script>
   <script src="js/p5.min.js"></script>
   <script src="js/mappa.js"></script>
   <script src="js/leaflet.curve.js"></script>
-  <!-- <script src="js/CSVmap.js"></script> -->
-  <script src="js/CSVmap3.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script> -->
+  <script src="js/CSVmap7.js"></script>
+  <!-- <script src="js/CSVchart.js"></script> -->
 
 </body>
 

@@ -1,16 +1,13 @@
-let myMap;
+let map;
 let canvas;
 let countries;
 let locationImage;
-let imageArray = [];
-let commissionValue = [];
-
 //array for objects
-let locationImageArray = [];
+let countryArray = [];
 
 function preload() {
   // Load the data
-  countries = loadTable('assets/Locations.csv', 'csv', 'header', commissionValue,  imageLoader);
+  countries = loadTable('assets/Locations.csv', 'csv', 'header');
 }
 
 function imageLoader(){
@@ -21,11 +18,9 @@ function imageLoader(){
 
 
 function setup() {
-  // createCanvas(windowWidth, windowHeight);
-  var map = L.map('mapid').setView([0, 0], 2);
-
+  var map = L.map('map').setView([0, 0], 2);
  	L.tileLayer('https://api.maptiler.com/maps/voyager/{z}/{x}/{y}.png?key=6e5dj7C0TZ5PY4pS6DXo', {
- }).addTo(map);
+  }).addTo(map);
 
 
   for(let i = 0; i < countries.getRowCount(); i++ ){
@@ -33,23 +28,34 @@ function setup() {
     //create long, lat, country and tradeValue variables
     let long = Number(countries.getString(i, 'long'));
     let lat = Number(countries.getString(i, 'lat'));
-    let tea = Number(countries.getString(i, 'commission'));
+    let tea = String(countries.getString(i, 'tea'));
     let country = String(countries.getString(i, 'country'));
     let tradeValue = String(countries.getString(i, 'trade value'));
     let locationImage = String(countries.getString(i, 'image'));
-    // let locationImage = loadImage("assets/images/" + countries.getString(i, 'image'));
     let commissionValue = Number(countries.getString(i, 'commission'));
 
 
+        var greenTea = L.layerGroup();
 
-    // update marker for each country
-    L.marker([lat,long]).addTo(map)
-        .bindPopup('<h1>'+ country + '</h1><img src= "assets/images/'+ locationImage +'"/><p>Trade Value: ' + tradeValue +'</p>')
-        .openPopup();
+        let greenTeavalue = "green";
+        if (tea.includes(greenTeavalue)) {
+        	console.log("The word green is in the string.");
 
-    // L.marker([lat,long]).addTo(map)
-    //         .bindPopup('<h1>'+ country + '</h1>'+ this.x +'<p>Trade Value: ' + tradeValue +'</p>')
-    //         .openPopup();
+          L.marker([lat,long])
+          .bindPopup('<h1>'+ country + '</h1><img src= "assets/images/'+ locationImage +'"/><p>Trade Value: ' + tradeValue +'</p>')
+          .addTo(greenTea);
+
+          //using .addTo(map) puts all the points out at once
+
+        } else {
+        	console.log("The word green is not in the string.");
+        }
+
+        var overlayMaps = {
+          "Green Tea": greenTea
+        };
+
+        L.control.layers(null, overlayMaps).addTo(map);
 
 
 //add curved poly lines
@@ -75,11 +81,14 @@ function setup() {
   var midpointLatLng = [midpointY, midpointX];
 
   latlngs.push(latlng1, midpointLatLng, latlng2);
-  
+
   //trying to change path thickness
     var pathOptions = {
-    	color: 'rgba(255,0,0,0.5)',
+    	color: 'rgba(255,0,0,0.1)',
     	weight: 5,
+      dashArray: '5,10',
+      lineJoin: 'round'
+
     }
 
   var curvedPath = L.curve(
@@ -88,11 +97,38 @@ function setup() {
   		'Q', midpointLatLng,
   			 latlng2
   	], pathOptions).addTo(map);
+
+//mouse over and out stuff
+    curvedPath.on('mouseover', function(e) {
+      //show the location when hovering over the line
+      // L.marker([lat,long]).addTo(map).bindPopup('<h1>'+ country + '</h1><img src= "assets/images/'+ locationImage +'"/><p>Trade Value: ' + tradeValue +'</p>')
+      // .openPopup();
+      
+      var layer = e.target;
+
+      //change line style
+      layer.setStyle({
+          color: 'blue',
+          weight: 5,
+          dashArray: 'none',
+        });
+    });
+
+    curvedPath.on('mouseout', function(e) {
+      var layer = e.target;
+      //change line style
+      layer.setStyle({
+          color: 'rgba(255,0,0,0.1)',
+          weight: 5,
+          dashArray: '5,10',
+          lineJoin: 'round'
+        });
+    });
 }
 //end curved poly lines
-
  }
 
-function draw() {
 
+
+function draw() {
  }
