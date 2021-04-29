@@ -221,14 +221,14 @@ var homeMarker = L.marker([41.91113281,-87.68097687], {icon: homeIcon})
 
     homeMarker.on('click', function(e){
       console.log("home clicked");
-      myMap.flyTo([43.18,-87.68097687], 7);
+      myMap.flyTo([43.18,-87.68097687], 6);
         // myMap.setView(e.latlng, 10);
     });
 
     // var homeNavButton = document.getElementById('home-marker');
     var button = document.getElementById('home-marker')
   L.DomEvent.on(button,'click',function(){
-      myMap.flyTo([43.18,-87.68097687], 7);
+      myMap.flyTo([43.18,-87.68097687], 6);
 
   });
   }
