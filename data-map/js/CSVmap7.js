@@ -76,7 +76,7 @@ L.control.zoom({position:'topright'}).addTo(myMap);
       maxheight:750,
       keepInView:true
   })
-  .setContent('<iframe width="800" height="550" style="border: none" src="chart.html"></iframe>');
+  .setContent('<iframe width="800" height="500" style="border: none" src="chart.html"></iframe>');
 
 //Home Marker
 
@@ -221,7 +221,8 @@ var homeMarker = L.marker([41.91113281,-87.68097687], {icon: homeIcon})
 
     homeMarker.on('click', function(e){
       console.log("home clicked");
-      myMap.flyTo([43.18,-87.68097687], 6);
+
+      myMap.flyTo([45.80,-87.68097687], 6);
         // myMap.setView(e.latlng, 10);
     });
 

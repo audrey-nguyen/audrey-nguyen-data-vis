@@ -204,8 +204,8 @@ img{
 .bar{
   background-color: #4adede;
   background-image: linear-gradient(to right, #4adede , #4aabde);
-  width: 500px;
-  height: 40px;
+  width: 300px;
+  height: 30px;
   border-radius: 25px;
 }
 
@@ -214,7 +214,7 @@ img{
  font-size: 15px;
  font-weight: 500;
  padding-left: 15px;
- padding-top: 7px;
+ padding-top: 4px;
 }
 
 #coEmission{
