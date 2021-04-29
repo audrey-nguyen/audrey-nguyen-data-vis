@@ -8,226 +8,239 @@
 
 
   <style>
-  html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    overflow-y: hidden;
-    overflow-x: hidden;
-    font-family: 'Poppins', sans-serif;
-  }
-  canvas{
-    margin: 0 auto;
-  }
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      overflow-y: hidden;
+      overflow-x: hidden;
+      font-family: 'Poppins', sans-serif;
+    }
 
-  p{
-    font-size: 14pt;
-  }
+    canvas {
+      margin: 0 auto;
+    }
 
-  .tab {
-    overflow: hidden;
-    display: inline-block;
-  }
+    p {
+      font-size: 14pt;
+    }
 
-  .tab button {
-    /* float: left; */
-    border: 2px solid white;
-    outline: none;
-    cursor: pointer;
-    padding: 12px 20px;
-    margin: 10px;
-    transition: 0.3s;
-    font-size: 12px;
-    border-radius: 25px;
-    background-color: white;
-    color: #7A7A7A;
-  }
+    .tab {
+      overflow: hidden;
+      display: inline-block;
+    }
 
-  .tab button:hover {
-    background-color: none;
-  }
+    .tab button {
+      /* float: left; */
+      border: 2px solid white;
+      outline: none;
+      cursor: pointer;
+      padding: 12px 20px;
+      margin: 10px;
+      transition: 0.3s;
+      font-size: 12px;
+      border-radius: 25px;
+      background-color: white;
+      color: #7A7A7A;
+    }
 
-  .tab button.active {
-    background-color: none;
-    border: 2px solid #797ef6;
-    color: #797ef6;
-  }
+    .tab button:hover {
+      background-color: none;
+    }
 
-  .tabcontent {
-    display: none;
-    padding: 20px;
-    border-top: none;
-    align-items: center;
-  }
+    .tab button.active {
+      background-color: none;
+      border: 2px solid #797ef6;
+      color: #797ef6;
+    }
 
-  .activitytab {
-    padding-right: 50px;
-    margin-top: -40px;
-  }
+    .tabcontent {
+      display: none;
+      padding: 20px;
+      border-top: none;
+      align-items: center;
+    }
 
-  .center {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-  }
+    .activitytab {
+      padding-right: 50px;
+      margin-top: -40px;
+    }
 
-  .tab-container {
-    text-align: center;
-    padding-top: 0;
-  }
+    .center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
 
-  .radar-chart-section {
-    height: 600px !important;
-  }
+    .tab-container {
+      text-align: center;
+      padding-top: 0;
+    }
 
-  .tabcontent h1{
-    font-weight: 500;
-    font-size: 25px;
-    margin-bottom: 0px;
-    margin-top: 0px;
+    .radar-chart-section {
+      height: 600px !important;
+    }
 
-  }
-  .tabcontent p{
-    font-weight: 300;
-    font-size: 15px;
-    margin-top: 0px;
-    margin-bottom: 50px;
-    color: #7A7A7A;
-  }
-/* change to adjust scroll */
-.carbontab{
-  overflow: auto;
-  height: 400px;
-}
+    .tabcontent h1 {
+      font-weight: 500;
+      font-size: 25px;
+      margin-bottom: 0px;
+      margin-top: 0px;
 
-  ul{
-    position: relative;
-    padding: 10px;
-    padding-left:0;
-    box-sizing: border-box;
-    list-style-type: none;
-    margin-bottom: 30px;
+    }
 
-  }
-  ul li{
-    display: flex;
-    background-color: #4adede;
-    background-image: linear-gradient(to right, #4adede , #4aabde);
-    padding: 10px 20px;
-    margin: 10px 0;
-    font-size: 15px;
-    font-weight: 300;
-    color: #fff;
-    transition: .2s;
-  }
-  ul li:hover{
-    background: none;
-    border: 3px solid #4adede;
-    color: #7A7A7A;
-    transform: scale(1.05);
-  }
-  ul li span:nth-child(1){
-    text-align: left;
-    width: 300px;
-  }
-  ul li span:nth-child(2){
-    text-align: right;
-    width: 400px;
-  }
+    .tabcontent p {
+      font-weight: 300;
+      font-size: 15px;
+      margin-top: 0px;
+      margin-bottom: 50px;
+      color: #7A7A7A;
+    }
 
-  .button-group{
-    position: relative;
-    margin-bottom: 80px;
-    flex-direction: row;
-    justify-content: center;
-  }
-  .offset-btn{
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 2;
-  }
-  .offset-btn button{
-    padding: 10px 30px;
-    background-color: #797ef6;
-    color: white;
-    border: none;
-    font-size: 16px;
-    border-radius: 25px;
-    outline: none;
-    transition: all 300ms ease-in-out;
-  }
+    /* change to adjust scroll */
+    .carbontab {
+      overflow: auto;
+      height: 400px;
+    }
 
-  .offset-btn button:hover{
-    color: white;
-    background-color: #424cc1;
-  }
-  .offset-btn.active{
-    animation: moveToLeft .5s ease-in-out;
-    animation-fill-mode: forwards;
-    animation-delay: 1000ms;
-  }
+    ul {
+      position: relative;
+      padding: 10px;
+      padding-left: 0;
+      box-sizing: border-box;
+      list-style-type: none;
+      margin-bottom: 30px;
 
-  .offset-btn-pop{
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    opacity: 0;
-  }
+    }
 
-  .offset-btn-pop button{
-    padding: 10px 30px;
-    background-color: #797ef6;
-    color: white;
-    border: none;
-    font-size: 16px;
-    border-radius: 25px;
-    outline: none;
-    transition: all 300ms ease-in-out;
-  }
+    ul li {
+      display: flex;
+      background-color: #4adede;
+      background-image: linear-gradient(to right, #4adede, #4aabde);
+      padding: 10px 20px;
+      margin: 10px 0;
+      font-size: 15px;
+      font-weight: 300;
+      color: #fff;
+      transition: .2s;
+    }
 
-  .offset-btn-pop  button:hover{
-    color: white;
-    background-color: #424cc1;
-  }
+    ul li:hover {
+      background: none;
+      border: 3px solid #4adede;
+      color: #7A7A7A;
+      transform: scale(1.05);
+    }
 
-  .offset-btn-pop.active{
-    transition: 3000ms ease-in-out;
-    animation: moveToRight .5s ease-in-out;
-    animation-fill-mode: forwards;
-    animation-delay: 1000ms;
-    opacity: 1;
-  }
+    ul li span:nth-child(1) {
+      text-align: left;
+      width: 300px;
+    }
+
+    ul li span:nth-child(2) {
+      text-align: right;
+      width: 400px;
+    }
+
+    .button-group {
+      position: relative;
+      margin-bottom: 80px;
+      flex-direction: row;
+      justify-content: center;
+    }
+
+    .offset-btn {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+    }
+
+    .offset-btn button {
+      padding: 10px 30px;
+      background-color: #797ef6;
+      color: white;
+      border: none;
+      font-size: 16px;
+      border-radius: 25px;
+      outline: none;
+      transition: all 300ms ease-in-out;
+    }
+
+    .offset-btn button:hover {
+      color: white;
+      background-color: #424cc1;
+    }
+
+    .offset-btn.active {
+      animation: moveToLeft .5s ease-in-out;
+      animation-fill-mode: forwards;
+      animation-delay: 1000ms;
+    }
+
+    .offset-btn-pop {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0;
+    }
+
+    .offset-btn-pop button {
+      padding: 10px 30px;
+      background-color: #797ef6;
+      color: white;
+      border: none;
+      font-size: 16px;
+      border-radius: 25px;
+      outline: none;
+      transition: all 300ms ease-in-out;
+    }
+
+    .offset-btn-pop button:hover {
+      color: white;
+      background-color: #424cc1;
+    }
+
+    .offset-btn-pop.active {
+      transition: 3000ms ease-in-out;
+      animation: moveToRight .5s ease-in-out;
+      animation-fill-mode: forwards;
+      animation-delay: 1000ms;
+      opacity: 1;
+    }
 
 
-  @keyframes moveToLeft {
-      from {
-         transform: translateX(0px);
-       }
-      to {
-         transform: translateX(-270px);
-       }
-     }
-
-  @keyframes moveToRight {
+    @keyframes moveToLeft {
       from {
         transform: translateX(0px);
       }
+
+      to {
+        transform: translateX(-270px);
+      }
+    }
+
+    @keyframes moveToRight {
+      from {
+        transform: translateX(0px);
+      }
+
       to {
         transform: translateX(50px);
       }
     }
-a:visited {
-color: white;
-}
-.mixed-chart-section {
-  height: 200px !important;
-}
 
+    a:visited {
+      color: white;
+    }
 
-</style>
+    .mixed-chart-section {
+      height: 200px !important;
+    }
+  </style>
 
 
 
@@ -236,20 +249,20 @@ color: white;
 
 
 <body>
-<div class="tab-container">
-  <div class="tab">
-    <button class="tablinks" onclick="openTab(event, 'Energy')" id="defaultOpen">ENERGY USEAGE</button>
-    <button class="tablinks" onclick="openTab(event, 'Activity')">ACTIVITY</button>
-    <button class="tablinks" onclick="openTab(event, 'Carbon')">CARBON OFFSET</button>
+  <div class="tab-container">
+    <div class="tab">
+      <button class="tablinks" onclick="openTab(event, 'Energy')" id="defaultOpen">ENERGY USEAGE</button>
+      <button class="tablinks" onclick="openTab(event, 'Activity')">ACTIVITY</button>
+      <button class="tablinks" onclick="openTab(event, 'Carbon')">CARBON OFFSET</button>
+    </div>
   </div>
-</div>
 
   <div id="Energy" class="tabcontent">
     <h1>Tea Consumption & Energy Usage</h1>
     <p>Chart displays amount of tea consumed in relationship to energy use</p>
     <div class="mixed-chart-section">
-    <canvas width="1200" height="450" id="mixed-chart"></canvas>
-  </div>
+      <canvas width="1200" height="450" id="mixed-chart"></canvas>
+    </div>
   </div>
 
   <div id="Activity" class="tabcontent activitytab">
@@ -313,34 +326,34 @@ color: white;
         <span class="list-name">Summer Rose</span>
         <span class="list-cost">0.21</span>
       </li>
-   </ul>
-   <div class="button-group">
-   <div id="button-left" class="offset-btn">
-      <a class="link-change" target="_blank"> <button>Adagio's Carbon Offset</button></a>
-   </div>
-   <div class="offset-btn-pop">
-     <a href='https://www.vox.com/2020/2/27/20994118/carbon-offset-climate-change-net-zero-neutral-emissions' target="_blank"><button>Is Carbon Offset Real?</button></a>
-   </div>
-  </div>
+    </ul>
+    <div class="button-group">
+      <div id="button-left" class="offset-btn">
+        <a class="link-change" target="_blank"> <button>Adagio's Carbon Offset</button></a>
+      </div>
+      <div class="offset-btn-pop">
+        <a href='https://www.vox.com/2020/2/27/20994118/carbon-offset-climate-change-net-zero-neutral-emissions' target="_blank"><button>Is Carbon Offset Real?</button></a>
+      </div>
+    </div>
 
   </div>
 
   <script>
-  function openTab(evt, tabName) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-      tabcontent[i].style.display = "none";
+    function openTab(evt, tabName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      document.getElementById(tabName).style.display = "block";
+      evt.currentTarget.className += " active";
     }
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-      tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-    document.getElementById(tabName).style.display = "block";
-    evt.currentTarget.className += " active";
-  }
 
-  document.getElementById("defaultOpen").click();
+    document.getElementById("defaultOpen").click();
   </script>
 
 

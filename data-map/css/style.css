@@ -12,30 +12,32 @@ html, body {
   width: 100%;
   height: 100%;
   position: absolute;
-  z-index: 1; don't change
+  z-index: 1;
+  don't change
+
 }
-
-
 
 h1 {
   font-size: 15px;
 }
 
-img{
+img {
   height: 150px;
   width: 100px;
 }
+
 /* NAVBAR */
-.nav-bar-wrapper{
+.nav-bar-wrapper {
   background: white;
   position: absolute;
   z-index: 2;
   height: 100%;
   box-shadow: 0px 16px 40px rgba(112, 144, 176, 0.2);
 }
-.nav-bar{
-}
-.intro-btn button{
+
+.nav-bar {}
+
+.intro-btn button {
   width: 70px;
   height: 70px;
   background-color: inherit;
@@ -43,14 +45,17 @@ img{
   border-radius: 10px;
   padding: 10px;
 }
-.intro-btn button img{
+
+.intro-btn button img {
   max-width: 40px;
   height: auto;
 }
-.intro-btn button img:hover{
+
+.intro-btn button img:hover {
   opacity: 50%;
 }
-.home-btn button{
+
+.home-btn button {
   width: 70px;
   height: 70px;
   background-color: inherit;
@@ -58,14 +63,17 @@ img{
   border-radius: 10px;
   padding: 10px;
 }
-.home-btn button img{
+
+.home-btn button img {
   max-width: 40px;
   height: auto;
 }
-.home-btn button img:hover{
+
+.home-btn button img:hover {
   opacity: 50%;
 }
-.tea-btn button{
+
+.tea-btn button {
   width: 70px;
   height: 70px;
   background-color: inherit;
@@ -73,22 +81,24 @@ img{
   border-radius: 10px;
   padding: 10px;
 }
-.tea-btn button img{
+
+.tea-btn button img {
   max-width: 40px;
   height: auto;
 }
-.tea-btn button img:hover{
+
+.tea-btn button img:hover {
   opacity: 50%;
 }
 
 /* NAVBAR END */
-
-.center{
+.center {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
 }
+
 .popup {
   width: 550px;
   height: 450px;
@@ -98,35 +108,36 @@ img{
   box-sizing: border-box;
   z-index: 2;
   text-align: center;
-  opacity:1;
-  top:50%;
+  opacity: 1;
+  top: 50%;
   box-shadow: 0px 16px 40px rgba(112, 144, 176, 0.2);
-  transform:translate(-50%,-50%) scale(1);
+  transform: translate(-50%, -50%) scale(1);
 }
 
-.popup.active{
-  opacity:0;
-  top:-200%;
-  transform:translate(-50%,-50%) scale(0.5);
+.popup.active {
+  opacity: 0;
+  top: -200%;
+  transform: translate(-50%, -50%) scale(0.5);
   transition: all 500ms ease-in-out;
 }
-.popup .title{
+
+.popup .title {
   margin: 5px 0px;
   font-size: 30px;
 }
 
-.popup .description{
+.popup .description {
   color: #7A7A7A;
   font-size: 15px;
   padding: 15px;
   margin-top: 30px;
 }
 
-.popup .dismiss-btn{
+.popup .dismiss-btn {
   margin-top: 50px;
 }
 
-.popup .dismiss-btn button{
+.popup .dismiss-btn button {
   padding: 10px 30px;
   background-color: #797ef6;
   color: white;
@@ -137,7 +148,7 @@ img{
   transition: all 300ms ease-in-out;
 }
 
-.popup .dismiss-btn button:hover{
+.popup .dismiss-btn button:hover {
   color: white;
   background-color: #424cc1;
 }
@@ -154,37 +165,36 @@ img{
   box-sizing: border-box;
   z-index: 3;
   text-align: center;
-  opacity:1;
-  top:50%;
+  opacity: 1;
+  top: 50%;
   border-radius: 15px;
   /* box-shadow: 0px 16px 40px rgba(112, 144, 176, 0.2); */
   /* transform:translate(-50%,-50%) scale(1); */
 }
 
-.popup-tea .title{
+.popup-tea .title {
   margin: 5px 0px;
   font-size: 30px;
 }
 
-.popup-tea.active{
-  opacity:0;
-  top:-200%;
-  transform:translate(-50%,-50%) scale(0.5);
+.popup-tea.active {
+  opacity: 0;
+  top: -200%;
+  transform: translate(-50%, -50%) scale(0.5);
   transition: all 500ms ease-in-out;
   display: block;
-
-
 }
-.close-img img{
+
+.close-img img {
   width: 15px;
   height: auto;
   padding: 5px;
   margin-left: 260px;
-  margin-top:-16px;
+  margin-top: -16px;
   position: absolute;
 }
 
-.emission-wrapper{
+.emission-wrapper {
   position: absolute;
   z-index: 2;
   top: 85vh;
@@ -194,35 +204,34 @@ img{
   height: 100px;
 }
 
-.emission-wrapper h1{
+.emission-wrapper h1 {
   padding-left: 15px;
   font-size: 12px;
   font-weight: normal;
   color: #7a7a7a;
 }
 
-.bar{
+.bar {
   background-color: #4adede;
-  background-image: linear-gradient(to right, #4adede , #4aabde);
+  background-image: linear-gradient(to right, #4adede, #4aabde);
   width: 300px;
   height: 30px;
   border-radius: 25px;
 }
 
-.emission-text{
- position: absolute;
- font-size: 15px;
- font-weight: 500;
- padding-left: 15px;
- padding-top: 4px;
+.emission-text {
+  position: absolute;
+  font-size: 15px;
+  font-weight: 500;
+  padding-left: 15px;
+  padding-top: 4px;
 }
 
-#coEmission{
-display: none;
+#coEmission {
+  display: none;
 }
 
 /* CARDS SLIDE */
-
 .owl-stage {
   display: none;
   position: absolute;
@@ -231,7 +240,7 @@ display: none;
   margin-bottom: 20px;
 }
 
-.owl-dots{
+.owl-dots {
   display: none;
 }
 
@@ -245,8 +254,6 @@ display: none;
   transition: all 500ms ease-in-out;
 }
 
-
-
 .slider {
   position: absolute;
   display: flex;
@@ -257,7 +264,7 @@ display: none;
   transform: translate(-50%, 5vh);
 }
 
-.slider .card{
+.slider .card {
   flex: 1;
   margin: 0 10px;
   padding: 20px;
@@ -267,46 +274,54 @@ display: none;
   border-radius: 25px;
   height: 550px;
 }
-.slider .card .card-img{
+
+.slider .card .card-img {
   height: 200px;
   width: 100%;
 }
-.slider .card .card-img img{
+
+.slider .card .card-img img {
   height: 100%;
   width: 100%;
   object-fit: cover;
 }
-.slider .card .content{
+
+.slider .card .content {
   padding: 10px 20px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
-.card .content .title{
+
+.card .content .title {
   font-size: 18px;
   font-weight: 600;
   text-align: left;
   width: 100%;
 }
-.card .content .sub-title{
+
+.card .content .sub-title {
   font-size: 12px;
   font-weight: 300;
   color: #7A7A7A;
   text-align: left;
   width: 100%;
 }
-.card .content p{
+
+.card .content p {
   font-size: 15px;
   margin-bottom: 20px;
   height: 80px;
   /* line-height: 20px; */
 }
-.card .content .btn{
+
+.card .content .btn {
   display: block;
   text-align: center;
 }
-.card .content .btn button{
+
+.card .content .btn button {
   padding: 10px 30px;
   margin: 50px;
   color: #4ADEDE;
@@ -316,19 +331,21 @@ display: none;
   border-radius: 25px;
   transition: 0.2s;
 }
-.card .content .btn button:hover{
+
+.card .content .btn button:hover {
   color: white;
   background-color: #4ADEDE;
   transform: scale(0.9);
 }
 
-.card .content .rating{
+.card .content .rating {
   font-size: 20px;
   font-weight: 600;
   display: flex;
   justify-content: center;
   margin: 10px;
 }
+
 .dot {
   position: absolute;
   margin-top: 38px;
@@ -341,14 +358,12 @@ display: none;
 }
 
 /* CARDS SLIDE END */
-
-
-
 /* CUSTOM LEAFLET */
-.location-popup{
+.location-popup {
   display: flex;
 }
-.location-popup .location-content{
+
+.location-popup .location-content {
   padding-right: 15px;
   margin: 0;
 }
@@ -363,11 +378,11 @@ display: none;
   font-size: 15px;
   margin: 0;
 }
+
 .location-popup .location-content p {
   font-size: 12px;
   margin-top: 10px;
 }
-
 
 .custom .leaflet-popup-content-wrapper {
   font-size: 15px;
@@ -376,8 +391,8 @@ display: none;
   box-shadow: 0px 16px 40px rgba(112, 144, 176, 0.2) !important;
 }
 
-.custom .leaflet-popup-content-wrapper .leaflet-popup-content {
-}
+.custom .leaflet-popup-content-wrapper .leaflet-popup-content {}
+
 .custom .leaflet-popup-tip {
   background-color: #fff;
 }
@@ -394,18 +409,18 @@ display: none;
   margin-bottom: 30px !important;
   margin-right: 30px !important;
   box-shadow: 0px 16px 40px rgba(112, 144, 176, 0.2) !important;
-	}
+}
 
 .custom .leaflet-control-layers label {
   padding: 10px;
   color: #7a7a7a;
-  }
+}
 
 .custom .leaflet-tile-pane {
   filter: grayscale(60%);
 }
 
-.custom .leaflet-marker-icon{
+.custom .leaflet-marker-icon {
   mix-blend-mode: multiply;
 }
 
@@ -416,11 +431,13 @@ display: none;
   box-shadow: 0px 16px 40px rgba(112, 144, 176, 0.2) !important;
   border-radius: 10px;
   font-family: 'Poppins';
-	}
-.location-popup .more-btn{
+}
+
+.location-popup .more-btn {
   margin-top: 10px;
 }
-.location-popup button{
+
+.location-popup button {
   padding: 10px 30px;
   background-color: #797ef6;
   color: white;
@@ -429,9 +446,9 @@ display: none;
   border-radius: 25px;
   outline: none;
   transition: all 300ms ease-in-out;
-  }
+}
 
-.location-popup button:hover{
+.location-popup button:hover {
   color: white;
   background-color: #424cc1;
 }
