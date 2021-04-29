@@ -1,7 +1,0 @@
-date,time,temp,feels,weather,temp_num
-2020-02-01, 11:47:23, 35.26°, 20.41°, overcast_clouds
-2020-02-03, 10:13:48, 31.44°, 23.88°, broken_clouds
-2020-02-04, 12:27:36, 35.65°, 18.59°, overcast_clouds
-2020-02-05, 12:05:56, 28.72°, 14.29°, overcast_clouds
-2020-02-05, 21:31:03, 29.14°, 17.55°, light_snow
-2020-02-06, 12:16:25, 27.61°, 13.1°, light_snow
