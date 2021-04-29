@@ -187,7 +187,7 @@ img{
 .emission-wrapper{
   position: absolute;
   z-index: 2;
-  margin-top: 90vh;
+  top: 85vh;
   margin-left: 150px;
   padding-top: 10px;
   width: 1000px;
