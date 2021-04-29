@@ -1,73 +1,182 @@
-
-
-let timeArray = [];
-let teaArray = [];
-let weatherArray = [];
-
+let cupArray = [];
 let energyArray = [];
-let personalData = [];
-let chartcanvas;
+
 
 
 function preload(){
-  personalData = loadTable('assets/personaldata.csv', 'csv', 'header');
+  personalData = loadTable('assets/teatype.csv', 'csv', 'header');
 }
 
 function setup(){
 
+
   for (var i = 0; i < personalData.getRowCount(); i++){
-    teaArray.push(personalData.getString(i, 'tea'));
     energyArray.push(personalData.getNum(i, 'energy usage'));
-  }
-
-  for (var i = 0; i < personalData.getRowCount(); i++){
-    timeArray.push(personalData.getNum(i, 'time'));
+    cupArray.push(personalData.getNum(i, '# of cups'));
 
   }
+
   loadGraph();
+  loadRadarChart();
 }
 
+
+
 function loadGraph(){
+  var gradientGreen = canvas.getContext('2d').createLinearGradient(0, 0, 0, 700);
+  gradientGreen.addColorStop(0, 'rgba(236, 250, 48, 0.9)');
+  gradientGreen.addColorStop(1, 'rgba(103, 207, 38, 0.5)');
+
+  var gradientBlue = canvas.getContext('2d').createLinearGradient(0, 0, 0, 700);
+  gradientBlue.addColorStop(0, 'rgba(112, 213, 252, 0.9)');
+  gradientBlue.addColorStop(1, 'rgba(66, 118, 230, 0.5)');
+
+  var gradientPurple = canvas.getContext('2d').createLinearGradient(0, 0, 0, 700);
+  gradientPurple.addColorStop(0, 'rgba(234, 184, 255, 0.9)');
+  gradientPurple.addColorStop(1, 'rgba(189, 84, 235, 0.5)');
+
+  var gradientRed = canvas.getContext('2d').createLinearGradient(0, 0, 0, 700);
+  gradientRed.addColorStop(0, 'rgba(227, 33, 124, 0.9)');
+  gradientRed.addColorStop(1, 'rgba(255, 179, 217, 0.5)');
+
+
   var ctx = document.getElementById('mixed-chart');
   var myChart = new Chart(ctx, {
 
     type: 'bar',
         data: {
-          labels: ["1900", "1950", "1999", "2050"],
+          labels: ["Green", "Black", "Oolong", "Herbal"],
           datasets: [{
-              label: "Europe",
+              label: "Energy Usage (kWh)",
               type: "line",
-              borderColor: "#8e5ea2",
-              data: [408,547,675,734],
+              borderColor: "rgb(255,215,115)",
+              pointBackgroundColor: "rgb(255,215,115)",
+              pointBorderColor: "rgb(255,215,115)",
+              data: energyArray,
               fill: false
             }, {
-              label: "Africa",
-              type: "line",
-              borderColor: "#3e95cd",
-              data: [133,221,783,2478],
-              fill: false
-            }, {
-              label: "Europe",
+              label: "# of cups",
               type: "bar",
-              backgroundColor: "rgba(0,0,0,0.2)",
-              data: [408,547,675,734],
-            }, {
-              label: "Africa",
-              type: "bar",
-              backgroundColor: "rgba(0,0,0,0.2)",
-              backgroundColorHover: "#3e95cd",
-              data: [133,221,783,2478]
+              backgroundColor: [gradientGreen, gradientBlue, gradientPurple, gradientRed],
+              data: cupArray,
             }
           ]
         },
         options: {
+          ticks: {
+            display: false
+
+          },
           title: {
-            display: true,
-            text: 'Population growth (millions): Europe & Africa'
+            display: false,
+            text: 'Tea Consumption & Energy Usage'
           },
           legend: { display: false }
         }
 });
+
+
+}
+
+function loadRadarChart(){
+  var gradientBlue = canvas.getContext('2d').createLinearGradient(0, 0, 0, 700);
+  gradientBlue.addColorStop(0, 'rgba(112, 213, 252, 0.9)');
+  gradientBlue.addColorStop(1, 'rgba(66, 118, 230, 0.5)');
+
+  var gradientRed = canvas.getContext('2d').createLinearGradient(0, 0, 0, 700);
+  gradientRed.addColorStop(0, 'rgba(227, 33, 124, 0.9)');
+  gradientRed.addColorStop(1, 'rgba(255, 179, 217, 0.5)');
+
+  var gradientPurple = canvas.getContext('2d').createLinearGradient(0, 0, 0, 700);
+  gradientPurple.addColorStop(0, 'rgba(234, 184, 255, 0.9)');
+  gradientPurple.addColorStop(1, 'rgba(189, 84, 235, 0.5)');
+
+  var gradientGreen = canvas.getContext('2d').createLinearGradient(0, 0, 0, 700);
+  gradientGreen.addColorStop(0, 'rgba(236, 250, 48, 0.9)');
+  gradientGreen.addColorStop(1, 'rgba(103, 207, 38, 0.5)');
+
+
+
+
+  var ctx = document.getElementById('radar-chart');
+  var myChart = new Chart(ctx, {
+      type: 'radar',
+      data: {
+        labels: ["Sleep", "Work", "Digital Media", "Class", "Meal Time", "Exercise"],
+        datasets: [
+          {
+            label: "Green Tea",
+            fill: true,
+            backgroundColor: gradientGreen,
+            borderColor: "transparent",
+            pointBorderColor: "transparent",
+            pointBackgroundColor: "transparent",
+            data: [.25,.25,.25,.5,5,.5]
+          }, {
+            label: "Black Tea",
+            fill: true,
+            backgroundColor: gradientBlue,
+            borderColor: "transparent",
+            pointBorderColor: "transparent",
+            pointBackgroundColor: "transparent",
+            data: [.25,3.5,2.5,2.5,2.5,.25]
+          }, {
+            label: "Oolong Tea",
+            fill: true,
+            backgroundColor: gradientPurple,
+            borderColor: "transparent",
+            pointBorderColor: "transparent",
+            pointBackgroundColor: "transparent",
+            data: [.25,.25,.25,.25,1.5,1.5]
+          }, {
+            label: "Herbal Tea",
+            fill: true,
+            backgroundColor: gradientRed,
+            borderColor: "transparent",
+            pointBorderColor: "transparent",
+            pointBackgroundColor: "transparent",
+            data: [3.5,.5,2.5,.25,.25,1.5]
+          },
+        ]
+      },
+      options: {
+        align: {
+        },
+        layout: {
+          padding: {
+            top: 50
+          }
+        },
+        legend: {
+          position: 'right',
+          display: true,
+          title: {
+            padding: 30,
+
+          },
+          labels: {
+            padding: 40,
+            fontSize: 14,
+          }
+
+        },
+        tooltips: {
+          enabled: false
+        },
+        gridLines: {
+          display: false
+        },
+        scale: {
+          ticks: {
+            maxTicksLimit: 1,
+            display: false,
+          }
+        },
+        title: {
+          display: false,
+          }
+      }
+  });
 
 
 }

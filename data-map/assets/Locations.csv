@@ -1,11 +1,11 @@
-country,tea,lat,long,trade value,commission,image
-CHINA,"green, black",35.86166,104.195396,1771249125,1,sakaran.jpeg
-INDIA,black,22.3511148,78.6677428,848213621,2,sakaran.jpeg
-sri lanka,black,7.5554942,80.7137847,810580980,3,sakaran.jpeg
-"SHIZOUKA PREFECTURE, JAPAN",green,34.98583,138.38539,142819279,4,sakaran.jpeg
-JAPAN,green,36.204823,138.25293,142819279,5,sakaran.jpeg
-usa,herbal,37.09024,-95.712891,101636704,6,sakaran.jpeg
-"MAKINOHARA, JAPAN",green,35.78985,139.951809,142819279,7,makinohara.jpeg
-"FU DING, FU JIAN PROVINCE",green,27.2216635,120.2110277,1771249125,8,fuding.jpeg
-"SAKARAN VILLAGE, EGYPT",herbal,29.3,30.5,11886236,9,sakaran.jpeg
-EGYPT,herbal,27,30,11886236,10,sakaran.jpeg
+country,tea,lat,long,trade value,tea exports,image,extra
+CHINA,"green, black",35.86166,104.195396,1771249125,"$2,025,787,000",china.jpeg,   <div class="more-btn"><a href='https://www.adagio.com/roots_campaign/yao_fu_yun.html' target="_blank"><button>More Info</button></a></div>
+INDIA,black,22.3511148,78.6677428,848213621,"$802,984,000",india.png,
+SRI LANKA,black,7.5554942,80.7137847,810580980,"$721,273,000",sri-lanka.jpeg, <div class="more-btn"><a href='https://www.adagio.com/roots_campaign/archiemuthu_satheskumar.html' target="_blank" ><button class="more-btn">More Info</button></a></div>
+"SHIZOUKA PREFECTURE, JAPAN",green,34.98583,138.38539,N/A,N/A,shi.png,
+JAPAN,green,36.204823,138.25293,142819279,"$137,147,000",japan.jpeg, <div class="more-btn"><a href='https://www.adagio.com/roots_campaign/nagashima_takehisa.html' target="_blank" ><button class="more-btn">More Info</button></a></div>
+USA,herbal,37.09024,-95.712891,101636704,"$111,695,000",usa.png,
+"MAKINOHARA, JAPAN","green, oolong",35.78985,139.951809,N/A,N/A,makinohara.jpeg, <div class="more-btn"><a href='https://www.adagio.com/roots_campaign/masuda_yoshio.html' target="_blank" ><button class="more-btn">More Info</button></a></div>
+"FU DING, FU JIAN PROVINCE",green,27.2216635,120.2110277,N/A,N/A,fuding.jpeg, <div class="more-btn"><a href='https://www.adagio.com/roots_campaign/lin_chui_feng.html' target="_blank" ><button class="more-btn">More Info</button></a></div>
+"SAKARAN VILLAGE, EGYPT",herbal,29.3,30.5,N/A,N/A,sakaran.jpeg, <div class="more-btn"><a href='https://www.adagio.com/roots_campaign/salah_al_esh.html' target="_blank" ><button class="more-btn">More Info</button></a></div>
+EGYPT,herbal,27,30,11886236,"$4,680,000",egypt.png,

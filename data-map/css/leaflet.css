@@ -323,7 +323,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	border-top-right-radius: 2px;
 	}
 .leaflet-touch .leaflet-bar a:last-child {
-	border-bottom-left-radius: 2px;
+	-bottom-left-radius: 2px;
 	border-bottom-right-radius: 2px;
 	}
 

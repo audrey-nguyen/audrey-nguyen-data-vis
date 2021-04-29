@@ -8,11 +8,14 @@ var cities
 let countryArray = [];
 let greenTeaArray = [];
 let blackTeaArray = [];
+let oolongTeaArray = [];
 let herbalTeaArray = [];
 
 let  greenTeaCities;
 let  blackTeaCities;
+let  oolongTeaCities;
 let  herbalTeaCities;
+
 
 const mappa = new Mappa('Leaflet');
 
@@ -32,32 +35,51 @@ function imageLoader(){
 
 
 function setup() {
-  var myMap = L.map('map').setView([0, 0], 2);
+
+
+  var myMap = L.map('map',{zoomControl: false}).setView([0, 0], 2);
   L.tileLayer('https://api.maptiler.com/maps/voyager/{z}/{x}/{y}.png?key=6e5dj7C0TZ5PY4pS6DXo', {
-  }).addTo(myMap);
+  }).addTo(myMap)
+
+L.control.zoom({position:'topright'}).addTo(myMap);
 
 
   var pointIcon = L.icon({
       iconUrl: "assets/point-01.png",
-      iconSize:     [10, 10], // size of the icon
-      iconAnchor:   [4.5, 0], // point of the icon which will correspond to marker's location
+      iconSize:     [7, 7],
+      iconAnchor:   [4.5, 0],
   });
 
   var homeIcon = L.icon({
-      iconUrl: "assets/home-02.png",
-      iconSize:     [40, 40], // size of the icon
-      iconAnchor:   [15, 25], // point of the icon which will correspond to marker's location
+      iconUrl: "assets/home-03.png",
+      iconSize:     [40, 40],
+      iconAnchor:   [15, 25],
       popupAnchor:  [3, -50]
   });
 
+
+  var LeafIcon = L.Icon.extend({
+    options: {
+      iconSize:     [70, 70],
+      iconAnchor:   [30, 60],
+      popupAnchor:  [2, -65]
+    }
+    });
+
+  var greenLeaf = new LeafIcon({iconUrl: 'assets/tea-leaf-05.png'}),
+      blueLeaf = new LeafIcon({iconUrl: 'assets/tea-leaf-06.png'}),
+      purpleLeaf = new LeafIcon({iconUrl: 'assets/tea-leaf-07.png'}),
+      pinkLeaf = new LeafIcon({iconUrl: 'assets/tea-leaf-08.png'});
+
   var popup = L.popup({
-      maxWidth:1200,
+      maxWidth:1500,
       maxheight:750,
       keepInView:true
   })
-  .setContent('<iframe id="mixed-chart" width="900" height="650" src="chart.html"></iframe>');
+  .setContent('<iframe width="800" height="550" style="border: none" src="chart.html"></iframe>');
 
 //Home Marker
+
 var homeMarker = L.marker([41.91113281,-87.68097687], {icon: homeIcon})
 .bindPopup(popup)
 .addTo(myMap);
@@ -71,25 +93,31 @@ var homeMarker = L.marker([41.91113281,-87.68097687], {icon: homeIcon})
     let country = String(countries.getString(i, 'country'));
     let tradeValue = String(countries.getString(i, 'trade value'));
     let locationImage = String(countries.getString(i, 'image'));
-    let commissionValue = Number(countries.getString(i, 'commission'));
+    let teaExports = String(countries.getString(i, 'tea exports'));
+    let extra = String(countries.getString(i, 'extra'));
 
     L.marker([lat,long], {icon: pointIcon})
     .addTo(myMap);
 
     //check to see if the tea type is included then add to arrays
     if (tea.includes("green")) {
-      greenTeaArray.push(L.marker([lat,long])
-      .bindPopup('<h1>'+ country + '</h1><img src= "assets/images/'+ locationImage +'"/><p>Trade Value: ' + tradeValue +'</p>'));
+      greenTeaArray.push(L.marker([lat,long], {icon: greenLeaf})
+      .bindPopup('<div class="location-popup"><div class="location-content"><h1>'+ country + '</h1><p>Tea Trade Value: '+ tradeValue +'</p>'+ extra +'</div><div class="location-img"><img src= "assets/images/'+ locationImage +'"/></div></div>'));
     }
 
     if (tea.includes("black")) {
-      blackTeaArray.push(L.marker([lat,long])
-      .bindPopup('<h1>'+ country + '</h1><img src= "assets/images/'+ locationImage +'"/><p>Trade Value: ' + tradeValue +'</p>'));
+      blackTeaArray.push(L.marker([lat,long], {icon: blueLeaf})
+      .bindPopup('<div class="location-popup"><div class="location-content"><h1>'+ country + '</h1><p>Tea Trade Value: '+ tradeValue +'</p>'+ extra +'</div><div class="location-img"><img src= "assets/images/'+ locationImage +'"/></div></div>'));
+    }
+
+    if (tea.includes("oolong")) {
+      oolongTeaArray.push(L.marker([lat,long], {icon: purpleLeaf})
+      .bindPopup('<div class="location-popup"><div class="location-content"><h1>'+ country + '</h1><p>Tea Trade Value: '+ tradeValue +'</p>'+ extra +'</div><div class="location-img"><img src= "assets/images/'+ locationImage +'"/></div></div>'));
     }
 
     if (tea.includes("herbal")) {
-      herbalTeaArray.push(L.marker([lat,long])
-      .bindPopup('<h1>'+ country + '</h1><img src= "assets/images/'+ locationImage +'"/><p>Trade Value: ' + tradeValue +'</p>'));
+      herbalTeaArray.push(L.marker([lat,long], {icon: pinkLeaf})
+      .bindPopup('<div class="location-popup"><div class="location-content"><h1>'+ country + '</h1><p>Tea Trade Value: '+ tradeValue +'</p>'+ extra +'</div><div class="location-img"><img src= "assets/images/'+ locationImage +'"/></div></div>'));
     }
 
 
@@ -120,7 +148,7 @@ var homeMarker = L.marker([41.91113281,-87.68097687], {icon: homeIcon})
 
     //trying to change path thickness
     var pathOptions = {
-      color: 'rgba(255,0,0,0.1)',
+      color: 'rgba(30, 48, 151, 0.1)',
       weight: 5,
       dashArray: '5,10',
       lineJoin: 'round'
@@ -145,20 +173,13 @@ var homeMarker = L.marker([41.91113281,-87.68097687], {icon: homeIcon})
         let coEmission = document.getElementById('coEmmisson');
         var elements = document.getElementsByClassName('orange');
 
-        coEmission.innerText = ('CO2 Emissions by Sea Travel: ' + commissionValue);
-
-
-          // if (coEmission.style.display === "none") {
-          //   coEmission.style.display = "block";
-          // }else{
-          //   coEmission.style.display = "none";
-          // }
+        coEmission.innerText = (teaExports);
 
 
         var layer = e.target;
         //change line style
         layer.setStyle({
-          color: 'blue',
+          color: 'rgba(74, 222, 222, 1)',
           weight: 3,
           dashArray: 'none',
         });
@@ -167,12 +188,10 @@ var homeMarker = L.marker([41.91113281,-87.68097687], {icon: homeIcon})
 
       curvedPath.on('mouseout', function(e) {
 
-
-
         var layer = e.target;
         //change line style
         layer.setStyle({
-          color: 'rgba(255,0,0,0.1)',
+          color: 'rgba(30, 48, 151, 0.1)',
           weight: 3,
           dashArray: '5,10',
           lineJoin: 'round'
@@ -185,31 +204,38 @@ var homeMarker = L.marker([41.91113281,-87.68097687], {icon: homeIcon})
     //these have to be added manually and match the length of the tea arrays
     greenTeaCities = L.layerGroup([greenTeaArray[0], greenTeaArray[1], greenTeaArray[2], greenTeaArray[3], greenTeaArray[4]]);
     blackTeaCities = L.layerGroup([blackTeaArray[0], blackTeaArray[1], blackTeaArray[2]]);
+    oolongTeaCities = L.layerGroup([oolongTeaArray[0]]);
     herbalTeaCities = L.layerGroup([herbalTeaArray[0], herbalTeaArray[1], herbalTeaArray[2]]);
 
 
     var teaOverlay = {
       "Green Tea": greenTeaCities,
       "Black Tea": blackTeaCities,
+      "Oolong Tea": oolongTeaCities,
       "Herbal Tea": herbalTeaCities
     };
 
 
-    L.control.layers(null, teaOverlay).addTo(myMap);
+    L.control.layers(null, teaOverlay, {position:'bottomright', collapsed:false }).addTo(myMap);
+
 
     homeMarker.on('click', function(e){
       console.log("home clicked");
-      myMap.flyTo([41.91113281,-87.68097687], 7);
+      myMap.flyTo([43.18,-87.68097687], 7);
         // myMap.setView(e.latlng, 10);
     });
 
+    // var homeNavButton = document.getElementById('home-marker');
+    var button = document.getElementById('home-marker')
+  L.DomEvent.on(button,'click',function(){
+      myMap.flyTo([43.18,-87.68097687], 7);
+
+  });
   }
 
 
 
   function draw() {
-  }
 
-  function drawLocationPoints() {
 
   }

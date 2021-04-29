@@ -5,10 +5,17 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Interactive App</title>
+
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
+
   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
-  <script src="js/jquery-3.5.1.min.js"></script>
+
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <link rel="stylesheet" href="css/owl.theme.default.min.css">
+
 </head>
 
 
@@ -19,31 +26,262 @@
   <div class="popup center">
     <div class="title">Introduction</div>
     <div class="description">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac nisl id justo luctus euismod id vel sem. Duis pellentesque iaculis lectus, sit amet ullamcorper erat rutrum vitae. Nam imperdiet ex quis rutrum egestas. Suspendisse ut leo justo. Phasellus ornare nunc at mauris porta ultricies. Praesent hendrerit lacinia lorem vel suscipit. Aliquam nec nisi nibh. Etiam nisl nunc, convallis eget tortor sit amet, luctus vestibulum nisi. Nam elementum lobortis mattis. Mauris et venenatis dolor. Aenean elementum tempor arcu sit amet ornare.
+      This project visualizes my personal tea consumption along many other factors and data that can be found behind it. The map features various countries that my tea comes from and includes the farmers and their stories behind it. A majority of my tea is purchased through Adagio Teas, a company that highlights their direct involvement with their tea source to raise the living and working standards of growers.
     </div>
     <div class="dismiss-btn">
       <button id="dismiss-popup-btn">Explore</button>
     </div>
   </div>
-
-  <div class="intro-btn">
-    <button id="open-popup-btn">Introduction</button>
+  <div class="emission-wrapper">
+    <h1>TEA EXPORTS (US$) | 2018 - 2019</h1>
+    <div id="coEmmisson" class="emission-text show"></div>
+    <div class="bar"></div>
   </div>
 
-  <div id="coEmmisson" class="orange show"></div>
-     <p class="hint"><!-- Hint text will be displayed here --></p>
+<div class="nav-bar-wrapper">
+  <div class="intro-btn">
+    <button id="open-popup-btn"><img src="assets/info-10.png" alt="Info Button"></button>
+  </div>
+  <nav class="nav-bar">
+    <div class="home-btn">
+      <button id="home-marker"><img src="assets/home-03.png" alt="Home Button"></button>
+    </div>
+    <div class="tea-btn">
+      <button id="open-tea"><img src="assets/tea-04.png" alt="Tea Review"></button>
+    </div>
+  </nav>
+</div>
 
-  <div class='custom-popup' id="map"></div>
 
-  <script src="js/toggle-button.js"></script>
-  <script src="js/script.js"></script>
+  <div class='custom' id="map"></div>
+
+  <div class="slider owl-carousel owl-theme" id="slider-container">
+    <div class="card">
+        <div class="card-img"><img src="assets/images/tea/40_winks.jpeg" alt="40 Winks"></div>
+        <div class="content">
+            <div class="title">40 Winks</div>
+            <div class="sub-title">Herbal Tea | No caffeine | Steep at 212° for 5-10 min</div>
+            <p>Smells weird, tastes good. Pleasant, slightly minty and soothing.</p>
+            <span class="dot"></span>
+            <div class="rating">4.3</div>
+            <div class="btn">
+              <a href='https://www.scientificamerican.com/article/click-click-emit-the-carbon-cost-of-online-shopping/' target="_blank" ><button>Purchase</button></a>
+            </div>
+        </div>
+    </div>
+
+        <div class="card">
+            <div class="card-img"><img src="assets/images/tea/chamomile.png" alt="Chamomile" width="200px"></div>
+            <div class="content">
+                <div class="title">Chamomile</div>
+                <div class="sub-title">Herba Tea | No caffeine | Steep at 200° for 4-6 min</div>
+                <span class="dot"></span>
+                <p>Floral and sweet. Puts me in a soothing and calm mood.</p>
+                <span class="dot"></span>
+                <div class="rating">4</div>
+                <div class="btn">
+                  <a href='https://www.scientificamerican.com/article/click-click-emit-the-carbon-cost-of-online-shopping/' target="_blank" ><button>Purchase</button></a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="card">
+            <div class="card-img"><img src="assets/images/tea/cream.jpeg" alt="Cream Black"></div>
+            <div class="content">
+                <div class="title">Cream Black</div>
+                <div class="sub-title">Black Tea | High caffeine | Steep at 212° for 3 min</div>
+                <span class="dot"></span>
+                <p>Actually has cream taste? Even better with more cream. Has a rich flavor.</p>
+                <span class="dot"></span>
+                <div class="rating">5</div>
+                <div class="btn">
+                  <a href='https://www.scientificamerican.com/article/click-click-emit-the-carbon-cost-of-online-shopping/' target="_blank" ><button>Purchase</button></a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="card">
+            <div class="card-img"><img src="assets/images/tea/fujian_rain.jpeg" alt="Fujian Rain"></div>
+            <div class="content">
+                <div class="title">Fujian Rain</div>
+                <div class="sub-title">Oolong Tea | Moderate caffeine | Steep at 195° for 2-3 min</div>
+                <span class="dot"></span>
+                <p>Very interesting, has a mineral "rock taste". Earthy smell.</p>
+                <span class="dot"></span>
+                <div class="rating">4</div>
+                <div class="btn">
+                  <a href='https://www.scientificamerican.com/article/click-click-emit-the-carbon-cost-of-online-shopping/' target="_blank" ><button>Purchase</button></a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="card">
+            <div class="card-img"><img src="assets/images/tea/genmai_cha.jpeg" alt="Genmai Cha"></div>
+            <div class="content">
+                <div class="title">Genmai Cha</div>
+                <div class="sub-title">Green Tea | Moderate caffeine | Steep at 180° for 2-3 min</div>
+                <span class="dot"></span>
+                <p>Has toasted popped rice! Very nutty and almost savory taste. Good to use in ochazuke too.</p>
+                <span class="dot"></span>
+                <div class="rating">5</div>
+                <div class="btn">
+                  <a href='https://www.scientificamerican.com/article/click-click-emit-the-carbon-cost-of-online-shopping/' target="_blank" ><button>Purchase</button></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-img"><img src="assets/images/tea/maple_creme_oolong.jpeg" alt="Maple Creme Oolong"></div>
+            <div class="content">
+                <div class="title">Maple Creme Oolong</div>
+                <div class="sub-title">Oolong Tea | Moderate caffeine | Steep at 212° for 3-5 min</div>
+                <span class="dot"></span>
+                <p>Delicate maple flavor with warm spices.</p>
+                <span class="dot"></span>
+                <div class="rating">4.6</div>
+                <div class="btn">
+                  <a href='https://www.scientificamerican.com/article/click-click-emit-the-carbon-cost-of-online-shopping/' target="_blank" ><button>Purchase</button></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-img"><img src="assets/images/tea/matcha.jpeg" alt="Matcha"></div>
+            <div class="content">
+                <div class="title">Matcha</div>
+                <div class="sub-title">Green Tea | High caffeine | Steep at 170° for 2 min</div>
+                <span class="dot"></span>
+                <p>Vibrant color and creamy when whisked. Perfect for a matcha latte.</p>
+                <span class="dot"></span>
+                <div class="rating">4.5</div>
+                <div class="btn">
+                  <a href='https://www.scientificamerican.com/article/click-click-emit-the-carbon-cost-of-online-shopping/' target="_blank" ><button>Purchase</button></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-img"><img src="assets/images/tea/peppermint.png" alt="Peppermint"></div>
+            <div class="content">
+                <div class="title">Peppermint</div>
+                <div class="sub-title">Herbal Tea | No caffeine | Steep at 200° for 4-6 min</div>
+                <span class="dot"></span>
+                <p>Strong peppermint flavor. Need a specific mood for it, doesn't taste bad. Might try it iced...</p>
+                <span class="dot"></span>
+                <div class="rating">3.5</div>
+                <div class="btn">
+                  <a href='https://www.scientificamerican.com/article/click-click-emit-the-carbon-cost-of-online-shopping/' target="_blank" ><button>Purchase</button></a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="card">
+            <div class="card-img"><img src="assets/images/tea/earl_grey_lavender.jpeg" alt="Earl Grey Lavender"></div>
+            <div class="content">
+                <div class="title">Earl Grey Lavender</div>
+                <div class="sub-title">Black Tea | High caffeine | Steep at 212° for 3-5 min</div>
+                <span class="dot"></span>
+                <p>Strong flavor. Hints of vanilla and lavender. Great cup to start in the morning.</p>
+                <span class="dot"></span>
+                <div class="rating">5</div>
+                <div class="btn">
+                  <a href='https://www.scientificamerican.com/article/click-click-emit-the-carbon-cost-of-online-shopping/' target="_blank" ><button>Purchase</button></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-img"><img src="assets/images/tea/dragon_pearl.jpeg" alt="Jasmine Phoenix Pearls"></div>
+            <div class="content">
+                <div class="title">Jasmine Phoenix Pearls</div>
+                <div class="sub-title">Green Tea | Moderate caffeine | Steep at 195° for 2-3 min</div>
+                <span class="dot"></span>
+                <p>Soft flavor with lovely floral scent. Mild and sweet. Fun to watch pearls unfurl. </p>
+                <span class="dot"></span>
+                <div class="rating">6</div>
+                <div class="btn">
+                  <a href='https://www.scientificamerican.com/article/click-click-emit-the-carbon-cost-of-online-shopping/' target="_blank" ><button>Purchase</button></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-img"><img src="assets/images/tea/peach-iced-tea.jpeg" alt="Peach"></div>
+            <div class="content">
+                <div class="title">Peach</div>
+                <div class="sub-title">Black Tea | High caffeine | Steep at 212° for 3 min</div>
+                <span class="dot"></span>
+                <p>Smells wonderful and sweet. Light and refreashing cold on a hot day. Could be stronger.</p>
+                <span class="dot"></span>
+                <div class="rating">4</div>
+                <div class="btn">
+                  <a href='https://www.scientificamerican.com/article/click-click-emit-the-carbon-cost-of-online-shopping/' target="_blank" ><button>Purchase</button></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-img"><img src="assets/images/tea/sencha_overture.jpeg" alt="Sencha Overture"></div>
+            <div class="content">
+                <div class="title">Sencha Overture</div>
+                <div class="sub-title">Green Tea | Moderate caffeine | Steep at 165° for 2-3 min</div>
+                <span class="dot"></span>
+                <p>Very grassy and vegetal. Like drinking a soup. Not your typical morning cup.</p>
+                <span class="dot"></span>
+                <div class="rating">4.3</div>
+                <div class="btn">
+                  <a href='https://www.scientificamerican.com/article/click-click-emit-the-carbon-cost-of-online-shopping/' target="_blank" ><button>Purchase</button></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-img"><img src="assets/images/tea/summer_rose.jpeg" alt="Summer Rose"></div>
+            <div class="content">
+                <div class="title">Summer Rose</div>
+                <div class="sub-title">Black Tea | High caffeine | Steep at 212° for 3 min</div>
+                <span class="dot"></span>
+                <p>Reminds me of being in a garden. Fragrant and pleasant, great floral taste.</p>
+                <span class="dot"></span>
+                <div class="rating">4</div>
+                <div class="btn">
+                  <a href='https://www.scientificamerican.com/article/click-click-emit-the-carbon-cost-of-online-shopping/' target="_blank" ><button>Purchase</button></a>
+                </div>
+            </div>
+        </div>
+
+
+
+  </div>
+
+
+<!-- <div class="popup-tea">
+    <div class="close-img"><img src="assets/close-09.png" alt="close" id="close-tea"></div>
+        <div class="title">Tea Review</div> -->
+
+
+
+<!-- map needs to stay in FRONT -->
+
+
+
+  <div id="bubbles"></div>
+
+
+
   <script src="js/p5.min.js"></script>
   <script src="js/mappa.js"></script>
-  <script src="js/leaflet.curve.js"></script>
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script> -->
+  <script src="js/jquery-3.5.1.min.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/toggle-button.js"></script>
   <script src="js/CSVmap7.js"></script>
-  <!-- <script src="js/CSVchart.js"></script> -->
+  <script src="js/leaflet.curve.js"></script>
 
+  <script src="js/owl.carousel.min.js"></script>
 </body>
 
 </html>

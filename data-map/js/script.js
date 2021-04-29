@@ -1,14 +1,23 @@
-// curvedPath.on('mouseover', function(e) {
-//
-//
-// })
+$(document).ready(function(){
+  $('.slider').owlCarousel({
+    loop: true,
+    margin: 20,
+    dots: true,
+    stagePadding: 20,
+    autoplay: true,
+    autoplayTimeout: 4000,
+    autoplayHoverPause: true,
+    responsive:{
+    0:{
+        items:1
+    },
+    600:{
+        items:2
+    },
+    1000:{
+        items:3
+    }
+}
+  })
 
-// $(document).ready(function(){
-//     $(document).mousemove(function(){
-//          if($("#myDiv:hover").length != 0){
-//             $(".hint").text("Mouse is Over the DIV Element.");
-//         } else{
-//             $(".hint").text("Mouse is Outside the DIV Element.");
-//         }
-//     });
-// });
+});
