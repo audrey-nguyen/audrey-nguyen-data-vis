@@ -87,7 +87,7 @@ function setup() {
       maxheight: 750,
       keepInView: true
     })
-    .setContent('<iframe width="800" height="500" style="border: none" src="chart.html"></iframe>');
+    .setContent('<iframe width="800" height="450" style="border: none" src="chart.html"></iframe>');
 
   //Home Marker
 
